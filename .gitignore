@@ -301,3 +301,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.exe
+Output/Irrlicht.dll
+*.vcxproj
+Sping.vcxproj.filters

@@ -1,0 +1,7 @@
+25 August 2016
+	project split into 2 sections, core and game
+	game is created by main, and contains and intializes core, as well as future game-related stuff such as actor manager
+
+TODO:
+	ey, may use irrlicht to handle xml instead of tinyxml2, less dependancies lol, its got r/w capabilities in their demo
+	subscriber/observer pattern for input, or else doing if(input->waskeypressed(forwardKey)) for every single actor on every single tick would be really taxing, especially when no input's actually going on, https://sourcemaking.com/design_patterns/observer/cpp/3
