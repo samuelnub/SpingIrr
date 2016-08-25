@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <irrlicht.h>
 #include <Core/FileIO/settings.h>
 #include <Core/Window/window.h>
@@ -16,6 +17,17 @@ namespace Sping
 		~Core();
 
 		int init();
+
+		// Try not to use this from Game stuff
+		inline irr::IrrlichtDevice *getDevice()
+		{
+			return this->_device;
+		}
+
+		bool shouldRun();
+
+		std::unique_ptr<Sping::Settings> settings = std::make_unique<Sping::Settings>();
+		std::unique_ptr<Sping::Window> window = std::make_unique<Sping::Window>();
 
 	protected:
 

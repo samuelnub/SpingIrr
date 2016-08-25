@@ -9,9 +9,9 @@ Sping::Settings::~Settings()
 {
 }
 
-int Sping::Settings::init()
+int Sping::Settings::init(Sping::Core *core)
 {
-	
+	this->_core = core;
 
 	return 0;
 }

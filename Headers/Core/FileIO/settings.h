@@ -7,6 +7,8 @@
 // Constructor grabs first-time settings
 namespace Sping
 {
+	class Core;
+
 	class Data
 	{
 	public:
@@ -91,13 +93,13 @@ namespace Sping
 		Settings();
 		~Settings();
 
-		int init();
+		int init(Sping::Core *core);
 
 	protected:
 		
 
 	private:
-		
+		Sping::Core *_core;
 
 	};
 }

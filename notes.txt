@@ -1,6 +1,8 @@
 25 August 2016
 	project split into 2 sections, core and game
 	game is created by main, and contains and intializes core, as well as future game-related stuff such as actor manager
+	resources are in the output directory - where the build also builds to, just so its easier to manage lol
+
 
 TODO:
 	ey, may use irrlicht to handle xml instead of tinyxml2, less dependancies lol, its got r/w capabilities in their demo

@@ -13,8 +13,8 @@ int Sping::Game::init()
 {
 	this->core->init();
 
-	// I know this- much is-
-	while (true)
+	
+	while (this->core->shouldRun())
 	{
 		this->tick();
 	}
