@@ -18,25 +18,21 @@ namespace Sping
 
 		int init();
 
-		// Try not to use this from Game stuff
-		inline irr::IrrlichtDevice *getDevice()
-		{
-			return this->_device;
-		}
+		bool run();
 
-		bool shouldRun();
-
-		std::unique_ptr<Sping::Settings> settings = std::make_unique<Sping::Settings>();
-		std::unique_ptr<Sping::Window> window = std::make_unique<Sping::Window>();
+		std::unique_ptr<Settings> settings = std::make_unique<Settings>();
+		std::unique_ptr<Window> window = std::make_unique<Window>();
 
 	protected:
 
 
 	private:
-		friend class Sping::Settings;
-		friend class Sping::Window;
+		friend class Settings;
+		friend class Window;
 
-		irr::IrrlichtDevice *_device = nullptr;
+		irr::IrrlichtDevice *_device = irr::createDevice(
+			irr::video::EDT_NULL
+			);
 
 	};
 }

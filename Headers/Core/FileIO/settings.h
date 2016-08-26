@@ -45,7 +45,7 @@ namespace Sping
 
 
 	private:
-		friend class Sping::Setting;
+		friend class Setting;
 
 		// Still too much of a sissy to use unions
 		bool _bool;
@@ -64,7 +64,7 @@ namespace Sping
 		Setting();
 		~Setting();
 
-		inline const Sping::Data *get(const std::string name)
+		inline const Data *get(const std::string name)
 		{
 			try
 			{
@@ -80,9 +80,9 @@ namespace Sping
 
 
 	private:
-		friend class Sping::Settings;
+		friend class Settings;
 
-		std::unordered_map<std::string, Sping::Data> _settingData;
+		std::unordered_map<std::string, Data> _settingData;
 
 	};
 
@@ -93,13 +93,13 @@ namespace Sping
 		Settings();
 		~Settings();
 
-		int init(Sping::Core *core);
+		int init(Core *core);
 
 	protected:
 		
 
 	private:
-		Sping::Core *_core;
+		Core *_core;
 
 	};
 }

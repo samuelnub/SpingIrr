@@ -12,12 +12,11 @@ int Sping::Core::init()
 {
 	this->settings->init(this);
 	this->window->init(this);
-
+	
 	return 0;
 }
 
-bool Sping::Core::shouldRun()
+bool Sping::Core::run()
 {
-	// TODO: more user-configurable option (like stopping rendering loop when window isnt active)
 	return this->_device->run();
 }

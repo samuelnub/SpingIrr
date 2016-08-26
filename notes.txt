@@ -1,7 +1,12 @@
 25 August 2016
 	project split into 2 sections, core and game
 	game is created by main, and contains and intializes core, as well as future game-related stuff such as actor manager
+	core should contain stuff 
 	resources are in the output directory - where the build also builds to, just so its easier to manage lol
+	CTRL+R ON A VAR TO RENAME ALL INSTANCES, neato
+
+26 August 2016
+	main loop runs
 
 
 TODO:

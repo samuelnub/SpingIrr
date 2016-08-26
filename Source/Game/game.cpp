@@ -14,7 +14,7 @@ int Sping::Game::init()
 	this->core->init();
 
 	
-	while (this->core->shouldRun())
+	while (this->core->run())
 	{
 		this->tick();
 	}
