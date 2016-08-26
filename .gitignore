@@ -305,3 +305,4 @@ $RECYCLE.BIN/
 Output/Irrlicht.dll
 *.vcxproj
 Sping.vcxproj.filters
+*.dll

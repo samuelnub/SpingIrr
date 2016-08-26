@@ -19,6 +19,8 @@ int Sping::Game::init()
 		this->tick();
 	}
 
+	this->core->shutdown();
+
 	return 0;
 }
 

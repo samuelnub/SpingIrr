@@ -29,7 +29,7 @@ namespace Sping
 		irr::SIrrlichtCreationParameters params = irr::SIrrlichtCreationParameters();
 
 	protected:
-
+		
 
 	private:
 		Sping::Core *_core;

@@ -18,7 +18,10 @@ namespace Sping
 
 		int init();
 
+		// Whether the main loop should continue running
 		bool run();
+
+		int shutdown();
 
 		std::unique_ptr<Settings> settings = std::make_unique<Settings>();
 		std::unique_ptr<Window> window = std::make_unique<Window>();

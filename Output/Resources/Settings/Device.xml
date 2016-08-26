@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Device>
+  <!--Most settings expressed as enums, reference http://irrlicht.sourceforge.net/docu/structirr_1_1_s_irrlicht_creation_parameters.html for more info on possible arguments-->
+  <setting name="DeviceType" value="7" type="int"/>
+  <setting name="DriverType" value="5" type="int"/>
+  <setting name="WindowSizeWidth" value="1280" type="int"/>
+  <setting name="WindowSizeHeight" value="720" type="int"/>
+  <setting name="Bits" value="16" type="int"/>
+  <setting name="ZBufferBits" value="16" type="int"/>
+  <setting name="Fullscreen" value="0" type="bool"/>
+  <setting name="Stencilbuffer" value="1" type="bool"/>
+  <setting name="Vsync" value="0" type="bool"/>
+  <setting name="AntiAlias" value="8" type="int"/>
+  <setting name="HandleSRGB" value="0" type="bool"/>
+  <setting name="WithAlphaChannel" value="1" type="bool"/>
+  <setting name="DoubleBuffer" value="1" type="bool"/>
+  <setting name="IgnoreInput" value="0" type="bool"/>
+  <setting name="StereoBuffer" value="0" type="bool"/>
+  <setting name="HighPrecisionFPU" value="0" type="bool"/>
+  <setting name="EventReceiver" value="0" type="int"/>
+  <setting name="WindowId" value="0" type="int"/>
+  <setting name="LoggingLevel" value="0" type="int"/>
+  <setting name="DisplayAdapter" value="0" type="int"/>
+  <setting name="DriverMultithreaded" value="0" type="bool"/>
+  <setting name="UsePerformanceTimer" value="1" type="bool"/>
+  <setting name="Name" value="Sping" type="stringw"/>
+</Device>

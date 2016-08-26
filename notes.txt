@@ -7,7 +7,7 @@
 
 26 August 2016
 	main loop runs
-
+	irrlicht's core namespace has a bunch of neat data types and containers, with some of them offering some pretty good shiz, like bst-like search time complexity for their irr::core::map<T,T> type
 
 TODO:
 	ey, may use irrlicht to handle xml instead of tinyxml2, less dependancies lol, its got r/w capabilities in their demo
