@@ -11,8 +11,8 @@ Sping::Core::~Core()
 
 int Sping::Core::init()
 {
-	this->settings->init(this);
-	this->window->init(this);
+	this->settingsManager->init(this);
+	this->windowManager->init(this);
 	
 	return 0;
 }

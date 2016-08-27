@@ -23,5 +23,5 @@
   <setting name="DisplayAdapter" value="0" type="int"/>
   <setting name="DriverMultithreaded" value="0" type="bool"/>
   <setting name="UsePerformanceTimer" value="1" type="bool"/>
-  <setting name="Name" value="Sping" type="stringw"/>
+  <setting name="Name" value="Sping" type="string"/>
 </Device>

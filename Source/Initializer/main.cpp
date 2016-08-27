@@ -11,7 +11,14 @@ int main()
 
 	if (IM_RICK_HARRISON && THIS_IS_MY_PAWN_SHOP)
 	{
-		Sping::Game game;
+		try 
+		{
+			Sping::Game game;
+		}
+		catch (std::exception err)
+		{
+			std::cout << "Exception encountered!\n" << err.what() << std::endl;
+		}
 	}
 
 	std::cout << "FROM THE OTHER SIIIIIIIIIDE\n";

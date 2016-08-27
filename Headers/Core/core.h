@@ -2,8 +2,8 @@
 
 #include <memory>
 #include <irrlicht.h>
-#include <Core/FileIO/settings.h>
-#include <Core/Window/window.h>
+#include <Core/FileIO/settingsManager.h>
+#include <Core/Window/windowManager.h>
 
 // Core class, Game class should contain and initialize one of these
 // This contains publically accessible members to various core stuff, duh
@@ -23,15 +23,15 @@ namespace Sping
 
 		int shutdown();
 
-		std::unique_ptr<Settings> settings = std::make_unique<Settings>();
-		std::unique_ptr<Window> window = std::make_unique<Window>();
+		std::unique_ptr<SettingsManager> settingsManager = std::make_unique<SettingsManager>();
+		std::unique_ptr<WindowManager> windowManager = std::make_unique<WindowManager>();
 
 	protected:
 
 
 	private:
-		friend class Settings;
-		friend class Window;
+		friend class SettingsManager;
+		friend class WindowManager;
 
 		irr::IrrlichtDevice *_device = irr::createDevice(
 			irr::video::EDT_NULL

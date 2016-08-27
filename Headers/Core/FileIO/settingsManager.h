@@ -18,7 +18,7 @@ namespace Sping
 		INT,
 		FLOAT,
 		DOUBLE,
-		STRINGW,
+		STRING,
 
 		ALL // if youre too lazy to set
 	};
@@ -34,7 +34,7 @@ namespace Sping
 			int intVal,
 			float floatVal,
 			double doubleVal,
-			const irr::core::stringw &stringwVal,
+			const std::string &stringVal,
 			DataType type = DataType::ALL
 			);
 
@@ -59,9 +59,9 @@ namespace Sping
 			return (this->getType() == DataType::ALL || this->getType() == DataType::DOUBLE) ? this->_double : 0.0;
 		}
 
-		inline irr::core::stringw getStringw()
+		inline std::string getString()
 		{
-			return (this->getType() == DataType::ALL || this->getType() == DataType::STRINGW) ? this->_stringw : "N/A";
+			return (this->getType() == DataType::ALL || this->getType() == DataType::STRING) ? this->_string : "N/A";
 		}
 
 		inline DataType getType()
@@ -73,7 +73,7 @@ namespace Sping
 
 
 	private:
-		friend class Settings;
+		friend class SettingsManager;
 
 		DataType _type = DataType::ALL;
 
@@ -82,7 +82,7 @@ namespace Sping
 		int _int;
 		float _float;
 		double _double;
-		irr::core::stringw _stringw;
+		std::string _string;
 
 	};
 
@@ -98,27 +98,27 @@ namespace Sping
 
 
 	private:
-		friend class Settings;
+		friend class SettingsManager;
 
-		std::unordered_map<irr::core::stringw, Data> _settingData = std::unordered_map<irr::core::stringw, Data>();
+		std::unordered_map<std::string, Data> _settingData = std::unordered_map<std::string, Data>();
 
 	};
 
 	// Setting manager
-	class Settings
+	class SettingsManager
 	{
 	public:
-		Settings();
-		~Settings();
+		SettingsManager();
+		~SettingsManager();
 
 		int init(Core *core);
 
 		// Getter operator, looks prettier lol, returns "default stuff" if setting doesnt exist
-		Data &operator()(const irr::core::stringw &category, const irr::core::stringw &settingName);
+		Data &operator()(const std::string &category, const std::string &settingName);
 
 		// Change currently loaded settings at runtime, may take effect immediately
 		template<typename T>
-		int edit(const irr::core::stringw &category, const irr::core::stringw &settingName, const T &value)
+		int edit(const std::string &category, const std::string &settingName, const T &value)
 		{
 			try
 			{
@@ -143,8 +143,8 @@ namespace Sping
 				case DataType::DOUBLE:
 					tempData->_double = value;
 					break;
-				case DataType::STRINGW:
-					tempData->_stringw = value;
+				case DataType::STRING:
+					tempData->_string = value;
 					break;
 				default:
 					throw std::exception("Invalid type specified!\n");
@@ -169,23 +169,23 @@ namespace Sping
 		Core *_core;
 
 		int loadAll();
-		int load(const irr::core::stringw &category);
+		int load(const std::string &category);
 
 		// Write to file, should be called on shutdown, if anything was edited
 		int saveAll();
-		int save(const irr::core::stringw &category);
+		int save(const std::string &category);
 
 		// If true, it means someone's changed a setting during runtime and they've chosen that settings should be re-saved before exiting.
 		// Once true, stays true till saved at shutdown
 		bool _shouldSave = false;
 
-		std::unordered_map<irr::core::stringw, Setting> _settings = std::unordered_map<irr::core::stringw, Setting>();
+		std::unordered_map<std::string, Setting> _settings = std::unordered_map<std::string, Setting>();
 
-		irr::core::stringw _prefix = "Resources/Settings/";
-		irr::core::stringw _suffix = ".xml";
+		std::string _prefix = "Resources/Settings/";
+		std::string _suffix = ".xml";
 
 		// List of all individual settings files to load onto memory
-		std::vector<irr::core::stringw> _categories = std::vector<irr::core::stringw>(
+		std::vector<std::string> _categories = std::vector<std::string>(
 		{
 			"Device"
 			// TODO: other settings, eg graphical, key bindings etc...
