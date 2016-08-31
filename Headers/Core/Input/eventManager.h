@@ -1,29 +1,15 @@
 #pragma once
 
 #include <irrlicht.h>
-#include <functional>
 
 // Event manager, and an event component which your "event-wanting" objects can comprise of
 namespace Sping
 {
 	class Core;
 
-	class EventObserver
+	struct MouseInfo
 	{
-	public:
-		EventObserver();
-		~EventObserver();
-
-	protected:
-
-
-	private:
-		friend class EventManager;
-
-		std::function<void(void)> _function;
-
-		irr::s32 _eventType;
-		irr::s32 _eventEnum;
+		irr::core::dimension2d<irr::s32> pos;
 
 	};
 
@@ -36,20 +22,28 @@ namespace Sping
 		int init(Core *core);
 		
 		virtual bool OnEvent(const irr::SEvent &event);
+		
+		bool isKeyDown(irr::EKEY_CODE keycode);
+		bool isKeyUp(irr::EKEY_CODE keycode);
+		bool isKeyHeld(irr::EKEY_CODE keycode);
+		
+		bool isMouseDown(irr::E_MOUSE_BUTTON_STATE_MASK button);
+		bool isMouseUp(irr::E_MOUSE_BUTTON_STATE_MASK button);
+		bool isMouseHeld(irr::E_MOUSE_BUTTON_STATE_MASK button);
+		
+		bool isMouseDoubleClick(irr::E_MOUSE_BUTTON_STATE_MASK button);
+		bool isMouseTripleClick(irr::E_MOUSE_BUTTON_STATE_MASK button);
 
-		// Subscribe your event observer (which you've set up to trigger your desired function upon your desired event occuring)
-		int operator+=(EventObserver *subscriber);
+		bool isMouseMoved();
+		bool isMouseScrolled();
 
-		// Unsubscribe :(
-		int operator-=(EventObserver *subscriber);
+		irr::core::dimension2d<irr::s32> mousePos();
 
 	protected:
 
 
 	private:
 		Core *_core;
-		//TODO: arrays of input types http://irrlicht.sourceforge.net/docu/namespaceirr.html, which then contain arrays to call observer funcs which have subscribed to it (reference the mouse & joystick guide for handling it)
-		
 
 	};
 }

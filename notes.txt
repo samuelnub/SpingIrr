@@ -10,5 +10,9 @@
 	irrlicht's core namespace has a bunch of neat data types and containers, with some of them offering some pretty good shiz, like bst-like search time complexity for their irr::core::map<T,T> type
 	may just use good ol' tinyxml2 for handling xml stuff
 
+31 August 2016
+	attending events aint fun for github commit counts :(((
+	scrap y'old observer pattern lol, this thing isnt going to reach a point where its gonna be super intensive anyway, pfft
+
 TODO:
 	subscriber/observer pattern for input, or else doing if(input->waskeypressed(forwardKey)) for every single actor on every single tick would be really taxing, especially when no input's actually going on, https://sourcemaking.com/design_patterns/observer/cpp/3
