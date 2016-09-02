@@ -1,15 +1,14 @@
 #include <Game/game.h>
 #include <iostream>
 
-#define IM_RICK_HARRISON 1
-#define THIS_IS_MY_PAWN_SHOP 1
+#define D 8
 
 // Entry point, you nincompoop
 int main()
 {
 	std::cout << "HELLO\n";
 
-	if (IM_RICK_HARRISON && THIS_IS_MY_PAWN_SHOP)
+	if (8==D)
 	{
 		try 
 		{
@@ -19,6 +18,10 @@ int main()
 		{
 			std::cout << "Exception encountered!\n" << err.what() << std::endl;
 		}
+	}
+	else
+	{
+		std::cout << "You shall not pass :(\n";
 	}
 
 	std::cout << "FROM THE OTHER SIIIIIIIIIDE\n";

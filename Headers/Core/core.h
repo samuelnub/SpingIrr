@@ -4,6 +4,7 @@
 #include <irrlicht.h>
 #include <Core/FileIO/settingsManager.h>
 #include <Core/Window/windowManager.h>
+#include <Core/Input/eventManager.h>
 
 // Core class, Game class should contain and initialize one of these
 // This contains publically accessible members to various core stuff, duh
@@ -32,6 +33,7 @@ namespace Sping
 	private:
 		friend class SettingsManager;
 		friend class WindowManager;
+		friend class EventManager;
 
 		irr::IrrlichtDevice *_device = irr::createDevice(
 			irr::video::EDT_NULL
