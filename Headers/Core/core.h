@@ -22,10 +22,14 @@ namespace Sping
 		// Whether the main loop should continue running
 		bool run();
 
+		// Tick this every game loop iteration
+		void tick();
+
 		int shutdown();
 
 		std::unique_ptr<SettingsManager> settingsManager = std::make_unique<SettingsManager>();
 		std::unique_ptr<WindowManager> windowManager = std::make_unique<WindowManager>();
+		std::unique_ptr<EventManager> eventManager = std::make_unique<EventManager>();
 
 	protected:
 
@@ -35,9 +39,10 @@ namespace Sping
 		friend class WindowManager;
 		friend class EventManager;
 
-		irr::IrrlichtDevice *_device = irr::createDevice(
-			irr::video::EDT_NULL
-			);
+		irr::IrrlichtDevice *_device = nullptr;
+
+		// Setup device (createDeviceEx()) with setting's info
+		int setupDevice();
 
 	};
 }

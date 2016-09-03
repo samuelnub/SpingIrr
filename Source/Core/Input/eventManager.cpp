@@ -172,7 +172,7 @@ bool Sping::EventManager::onGUI(irr::s32 id, irr::gui::EGUI_EVENT_TYPE type)
 	 if all else fails, it's false.
 	*/
 	return
-		this->_guiEvent.Caller->getID == id &&
+		this->_guiEvent.Caller->getID() == id &&
 		((this->_guiEvent.EventType == type) ? true :
 		(type == irr::gui::EGET_COUNT) ? true : false);
 }

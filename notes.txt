@@ -14,5 +14,11 @@
 	attending events aint fun for github commit counts :(((
 	scrap y'old observer pattern lol, this thing isnt going to reach a point where its gonna be super intensive anyway, pfft
 
+3 September 2016
+	o boy, september already
+	finished up event manager, pretty conventional
+	near future:
+	timeManager for interfacing with the devices' ITimer, and a fancy OS manager which handles clipboard stuff
+
 TODO:
 	subscriber/observer pattern for input, or else doing if(input->waskeypressed(forwardKey)) for every single actor on every single tick would be really taxing, especially when no input's actually going on, https://sourcemaking.com/design_patterns/observer/cpp/3

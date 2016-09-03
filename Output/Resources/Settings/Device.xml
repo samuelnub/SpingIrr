@@ -15,7 +15,7 @@
   <setting name="WithAlphaChannel" value="1" type="bool"/>
   <setting name="DoubleBuffer" value="1" type="bool"/>
   <setting name="IgnoreInput" value="0" type="bool"/>
-  <setting name="StereoBuffer" value="0" type="bool"/>
+  <setting name="Stereobuffer" value="0" type="bool"/>
   <setting name="HighPrecisionFPU" value="0" type="bool"/>
   <setting name="EventReceiver" value="0" type="int"/>
   <setting name="WindowId" value="0" type="int"/>

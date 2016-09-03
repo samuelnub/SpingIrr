@@ -26,4 +26,6 @@ int Sping::Game::init()
 
 void Sping::Game::tick()
 {
+	this->core->tick();
+
 }

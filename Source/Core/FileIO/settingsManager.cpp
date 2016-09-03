@@ -17,7 +17,7 @@ int Sping::SettingsManager::init(Sping::Core *core)
 	return 0;
 }
 
-Sping::Data &Sping::SettingsManager::operator()(
+Sping::Data &Sping::SettingsManager::get(
 	const std::string &category, 
 	const std::string &settingName)
 {
@@ -27,6 +27,7 @@ Sping::Data &Sping::SettingsManager::operator()(
 	}
 	catch (std::exception err)
 	{
+		std::cout << "Could not retrieve setting in the category of \"" << category << "\" and/or a name of \"" << settingName << "\"!\n";
 		return this->_dataRef;
 	}
 }

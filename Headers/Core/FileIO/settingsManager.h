@@ -112,9 +112,9 @@ namespace Sping
 		~SettingsManager();
 
 		int init(Core *core);
-
-		// Getter operator, looks prettier lol, returns "default stuff" if setting doesnt exist
-		Data &operator()(const std::string &category, const std::string &settingName);
+		
+		// Getter for the setting you want, will return reference to "default" setting if doesnt exist
+		Data &get(const std::string &category, const std::string &settingName);
 
 		// Change currently loaded settings at runtime, may take effect immediately
 		template<typename T>
@@ -184,14 +184,6 @@ namespace Sping
 		std::string _prefix = "Resources/Settings/";
 		std::string _suffix = ".xml";
 
-		// List of all individual settings files to load onto memory
-		std::vector<std::string> _categories = std::vector<std::string>(
-		{
-			"Device"
-			// TODO: other settings, eg graphical, key bindings etc...
-		}
-			);
-
 		// "Null reference" if you're idiotic enough to request for a nonexistant setting
 		Data _dataRef = Data(
 			0,
@@ -199,6 +191,14 @@ namespace Sping
 			0.0f,
 			0.0,
 			"Null"
+			);
+
+		// List of all individual settings files to load onto memory
+		std::vector<std::string> _categories = std::vector<std::string>(
+		{
+			"Device"
+			// TODO: other settings, eg graphical, key bindings etc...
+		}
 			);
 
 	};
