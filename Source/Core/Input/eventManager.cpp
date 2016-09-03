@@ -1,6 +1,8 @@
 #include <Core/Input/eventManager.h>
 #include <Core/core.h>
 #include <iostream>
+#include <climits>
+#include <math.h>
 
 Sping::EventManager::EventManager()
 {
@@ -83,22 +85,96 @@ void Sping::EventManager::tick()
 
 bool Sping::EventManager::onKeyDown(irr::EKEY_CODE keycode)
 {
-	// TODO: do
+	return this->_keyStates[keycode] == KeyState::DOWN;
 }
 
 bool Sping::EventManager::onKeyUp(irr::EKEY_CODE keycode)
 {
-	// TODO: do
+	return this->_keyStates[keycode] == KeyState::UP;
 }
 
 bool Sping::EventManager::onKeyHeld(irr::EKEY_CODE keycode)
 {
-	// TODO: do
+	return this->_keyStates[keycode] == KeyState::DOWN || this->_keyStates[keycode] == KeyState::HELD;
 }
 
 bool Sping::EventManager::onKeyReleased(irr::EKEY_CODE keycode)
 {
-	// TODO: do
+	return this->_keyStates[keycode] == KeyState::UP || this->_keyStates[keycode] == KeyState::RELEASED;
+}
+
+bool Sping::EventManager::onMouseDown(MouseButton button)
+{
+	return this->_mouseButtonStates[button] == KeyState::DOWN;
+}
+
+bool Sping::EventManager::onMouseUp(MouseButton button)
+{
+	return this->_mouseButtonStates[button] == KeyState::UP;
+}
+
+bool Sping::EventManager::onMouseHeld(MouseButton button)
+{
+	return this->_mouseButtonStates[button] == KeyState::DOWN || this->_mouseButtonStates[button] == KeyState::HELD;
+}
+
+bool Sping::EventManager::onMouseReleased(MouseButton button)
+{
+	return this->_mouseButtonStates[button] == KeyState::UP || this->_mouseButtonStates[button] == KeyState::RELEASED;
+}
+
+bool Sping::EventManager::onMouseScrolled()
+{
+	return this->_mouseScrolled != 0.0f;
+}
+
+bool Sping::EventManager::onJoystickAxisMoved(irr::s32 axis, irr::u8 joystick)
+{
+	return this->_joysticks.size() > 0 && this->_joystickEvent.Axis[axis] != 0 && this->_joystickEvent.Joystick == joystick;
+}
+
+bool Sping::EventManager::onJoystickButtonDown(irr::u32 button, irr::u8 joystick)
+{
+	return this->_joysticks.size() > 0 && this->_joystickEvent.IsButtonPressed(button) && this->_joystickEvent.Joystick == joystick;
+}
+
+irr::core::dimension2d<irr::s32> Sping::EventManager::mousePos()
+{
+	return this->_mousePos;
+}
+
+irr::f32 Sping::EventManager::mouseScrolled()
+{
+	return this->_mouseScrolled;
+}
+
+irr::f32 Sping::EventManager::joystickAxisPos(irr::s32 axis, irr::f32 deadzone, irr::u8 joystick)
+{
+	if (this->_joysticks.size() == 0 || this->_joystickEvent.Joystick != joystick)
+	{
+		return 0.0f;
+	}
+
+	irr::f32 result = static_cast<irr::f32>(this->_joystickEvent.Axis[axis]) / SHRT_MAX;
+
+	return (std::fabs(result) >= deadzone) ? result : 0.0f;
+}
+
+bool Sping::EventManager::onGUI(irr::s32 id, irr::gui::EGUI_EVENT_TYPE type)
+{
+	// The heck
+	/*
+	 Returns true if:
+	 ID of gui event matches your request
+	 and
+	 since the default argument for the event type "doesnt exist" (its the enum count), check if it equals that, and if it does, just make it a "return true if an event happened with the ID at all/in general",
+	 or else, if the event type is user-specified and it also matches the event, return true too.
+	 if all else fails, it's false.
+	*/
+	return
+		this->_guiEvent.Caller->getID == id &&
+		((this->_guiEvent.EventType == type) ? true :
+		(type == irr::gui::EGET_COUNT) ? true : false);
 }
 
 int Sping::EventManager::setupStates()

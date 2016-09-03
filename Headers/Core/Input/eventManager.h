@@ -48,12 +48,11 @@ namespace Sping
 		bool onKeyHeld(irr::EKEY_CODE keycode);
 		bool onKeyReleased(irr::EKEY_CODE keycode);
 		
-		bool onMouseDown(irr::E_MOUSE_BUTTON_STATE_MASK button);
-		bool onMouseUp(irr::E_MOUSE_BUTTON_STATE_MASK button);
-		bool onMouseHeld(irr::E_MOUSE_BUTTON_STATE_MASK button);
-		bool onMouseReleased(irr::E_MOUSE_BUTTON_STATE_MASK button);
-
-		bool onMouseMoved();
+		bool onMouseDown(MouseButton button);
+		bool onMouseUp(MouseButton button);
+		bool onMouseHeld(MouseButton button);
+		bool onMouseReleased(MouseButton button);
+		
 		bool onMouseScrolled();
 
 		// Should return false if no joysticks supported
